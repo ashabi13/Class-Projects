@@ -1,0 +1,64 @@
+public class my_prog{
+	public void main(String[] args){
+		//setup Scanner
+	
+		//input data (three parameters)
+	
+		//convert to seconds based on first two parameters
+		double totSecs = 1.0;
+	
+		//calculate # of possibilities
+		long double numPos = 256000000.0;
+	
+		//calculate total time
+		long double totHack = totSecs * numPos;
+	
+		if(totHack > 31539456){// greater than a year
+			int theYears = Math.floor(totHack/31539456);
+			System.out.printf("%d years, ", theYears );
+			totHack = totHack - (theYears *31539456);
+			//totHack== 3684352
+		}
+		if(totHack > 2628288){// greater than a month
+			int theMonths = Math.floor(totHack/2628288);
+			System.out.printf("%d months, ", theMonths );
+			totHack = totHack - (theMonths *2628288);
+			//totHack== 3684352
+		}
+		if(totHack > 604800){// greater than a second
+			int theWeeks = Math.floor(totHack/604800);
+			System.out.printf("%d weeks, ", theWeeks );
+			totHack = totHack - (theWeeks*604800);
+			//totHack== 0
+		}
+		
+		if(totHack > 86400){// greater than a second
+			int theDays = Math.floor(totHack/86400);
+			System.out.printf("%d days, ", theDays );
+			totHack = totHack - (theDays*86400);
+			//totHack== 0
+		}
+		
+		if(totHack > 3600){// greater than a second
+			int theHours = Math.floor(totHack/3600);
+			System.out.printf("%d hours, ", theHours );
+			totHack = totHack - (theHours*3600);
+			//totHack== 0
+		}
+		
+		if(totHack > 60){// greater than a second
+			int theMinutes = Math.floor(totHack/60);
+			System.out.printf("%d minutes, ", theMinutes );
+			totHack = totHack - (theMinutes*60);
+			//totHack== 0
+		}
+		
+		if(totHack > 0){// greater than a second
+			int theSecs = Math.floor(totHack);
+			System.out.printf("%d seconds, ", theSecs );
+			totHack = totHack - (theSecs*1);
+			//totHack== 0
+		}
+	}
+}
+
