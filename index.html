@@ -1,0 +1,263 @@
+<!DOCTYPE HTML>
+<html>
+	<!-- Mutiat Alagbala
+		 Wednesday, May 13, 2015
+		 Intro to Programming
+		 Final Project: Game V1.0-->
+	<head>
+			<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+			<meta name="author" content="Mutiat Alagbala" />
+			<title>Mutiat's Game</title>
+			<style>
+
+				h1 {
+					color:#FFFFFF;
+					font-size: 45pt;
+					text-align: center;
+					font-family: Impact, Charcoal, sans-serif;
+				}/*white*/
+				h2 {
+					color:#CA2361;
+					font-size: 32pt;
+					text-align: center;
+					font-family: Impact, Charcoal, sans-serif;
+				}/*pink*/
+				h3 {
+					color:#E85328;
+					font-size: 24pt;
+					font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+				}/*orange*/
+				h4 {
+					color:#BC50CC;
+					font-size: 18pt;
+					font-family: "Comic Sans MS", cursive, sans-serif
+				}/*purple*/
+				.normal {
+					color:#F49E85;
+					font-size: 14pt;
+					font-family: "Courier New", Courier, monospace
+				}/*light orange*/
+				p {
+					color:#6AD272;
+					font-size: 14pt;
+					font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif
+				}/*light green*/
+				.links {
+					font-style: italic;
+					color: #0000FF;
+					font-family:"Lucida Console", Monaco, monospace
+				}/*blue and italized*/
+				
+				/*directional button style modified from http://www.bestcssbuttongenerator.com/*/
+				.directionButton{
+					position: absolute;
+					left: 400px;
+					right: 400px;
+					width: 3em;  
+					height: 3em;
+					-moz-box-shadow: 2px 2px 0px 0px #fbafe3;
+					-webkit-box-shadow: 2px 2px 0px 0px #fbafe3;
+					box-shadow: 2px 2px 0px 0px #fbafe3;
+					background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ff5bb0), color-stop(1, #ef027d));
+					background:-moz-linear-gradient(top, #ff5bb0 5%, #ef027d 100%);
+					background:-webkit-linear-gradient(top, #ff5bb0 5%, #ef027d 100%);
+					background:-o-linear-gradient(top, #ff5bb0 5%, #ef027d 100%);
+					background:-ms-linear-gradient(top, #ff5bb0 5%, #ef027d 100%);
+					background:linear-gradient(to bottom, #ff5bb0 5%, #ef027d 100%);
+					filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5bb0', endColorstr='#ef027d',GradientType=0);
+					background-color:#ff5bb0;
+					-moz-border-radius:28px;
+					-webkit-border-radius:28px;
+					border-radius:28px;
+					border:1px solid #ee1eb5;
+					display:inline-block;
+					cursor:pointer;
+					color:#ffffff;
+					font-family:Trebuchet MS;
+					font-size:16px;
+					font-weight:bold;
+					padding:9px 14px;
+					text-decoration:none;
+					text-shadow:2px 2px 0px #c70067;
+				}
+				/*The style for all the directional buttons when they are hovered over
+				Modified from http://www.bestcssbuttongenerator.com/ */
+				.directionButton:hover{
+					background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ef027d), color-stop(1, #ff5bb0));
+					background:-moz-linear-gradient(top, #ef027d 5%, #ff5bb0 100%);
+					background:-webkit-linear-gradient(top, #ef027d 5%, #ff5bb0 100%);
+					background:-o-linear-gradient(top, #ef027d 5%, #ff5bb0 100%);
+					background:-ms-linear-gradient(top, #ef027d 5%, #ff5bb0 100%);
+					background:linear-gradient(to bottom, #ef027d 5%, #ff5bb0 100%);
+					filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ef027d', endColorstr='#ff5bb0',GradientType=0);
+					background-color:#ef027d;
+				}
+				/*The style for all the directional buttons when they are being disabled*/
+				.directionButton:disabled{
+					position: absolute;
+					left: 400px;
+					right: 400px;
+					width: 3em;  
+					height: 3em;
+					-moz-box-shadow: 2px 2px 0px 0px #5c5b5c;
+					-webkit-box-shadow: 2px 2px 0px 0px #5c5b5c;
+					box-shadow: 2px 2px 0px 0px #5c5b5c;
+					background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #615d61), color-stop(1, #3b3b3b));
+					background:-moz-linear-gradient(top, #615d61 5%, #3b3b3b 100%);
+					background:-webkit-linear-gradient(top, #615d61 5%, #3b3b3b 100%);
+					background:-o-linear-gradient(top, #615d61 5%, #3b3b3b 100%);
+					background:-ms-linear-gradient(top, #615d61 5%, #3b3b3b 100%);
+					background:linear-gradient(to bottom, #615d61 5%, #3b3b3b 100%);
+					filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#615d61', endColorstr='#3b3b3b',GradientType=0);
+					background-color:#615d61;
+					-moz-border-radius:42px;
+					-webkit-border-radius:42px;
+					border-radius:42px;
+					border:1px solid #616161;
+					display:inline-block;
+					cursor:pointer;
+					color:#b3b3b3;
+					font-family:Trebuchet MS;
+					font-size:16px;
+					font-weight:bold;
+					padding:15px 15px;
+					text-decoration:none;
+					text-shadow:2px 2px 0px #3d313d;
+				}
+				/*A style for the GO button that executes the function that processes commands*/
+				.goButton {
+					background-color:#bb50cc;
+					border:1px solid #ab1971;
+					display:inline-block;
+					cursor:pointer;
+					color:#ffffff;
+					font-family:Verdana;
+					font-size:17px;
+					padding:5px 6px;
+					text-decoration:none;
+					text-shadow:3px 3px 5px #512866;
+					position:relative; 
+					left: 25px;
+					width:2em; 
+					height:2em;
+				}
+				.goButton:hover {
+					background-color:#a42abd;
+				}
+				
+				div.img {
+					margin: 5px;
+					padding: 5px;
+					border: 1px solid #ff5bb0;
+					height: auto;
+					width: auto;
+					float: right;
+					text-align: center;
+				}
+			</style>
+			<script src="location.js"></script>
+			<script>
+				var userLoc=0;
+				var score=0;
+				//2D array where 0-9 in the 1st dimension is the locations 
+				//and the 2nd dimension 0-3 are directions 
+				//0 is north
+				//1 is east
+				//2 is south
+				//3 is west
+				var navigation = [[1,2,3,4], 	//Loc 0
+								  [-1,-1,0,-1],	//Loc 1
+								  [-1,7,8,0],	//Loc 2
+								  [0,8,-1,-1],	//Loc 3
+								  [-1,0,-1,5],	//Loc 4
+								  [-1,4,-1,6],	//Loc 5
+								  [-1,5,-1,-1],	//Loc 6
+								  [9,-1,-1,2],	//Loc 7
+								  [2,-1,-1,3],	//Loc 8
+								  [-1,-1,7,-1]];//Loc 9
+				//handles navigation
+				function movePlayer(direction){	
+					//enable();
+					var nL=newLoc(direction);
+					locs[nL].goTo();
+						
+				}
+				//processes matrix to return newLocation
+				function newLoc(dir){	
+					var newLoc=navigation[userLoc][dir];
+					if(newLoc==-1) return userLoc;
+					else return newLoc;
+				}
+				//convertsCommands				
+				function commandConvert(c){
+					if(c=="n"||c=="N") movePlayer(0);
+					else if(c=="e"||c=="E") movePlayer(1);
+					else if(c=="s"||c=="S") movePlayer(2);
+					else if(c=="w"||c=="W") movePlayer(3);
+					else if(c=="i"||c=="I") locs[0].updateDisplay(items.toString());
+					else if(c=="t"||c=="T"){ if(locs[userLoc].item!=undefined)locs[userLoc].item.take();}
+					else if(c=="help"||c=="HELP") locs[0].updateDisplay("The commands you can use are \"n\" or \"N\" for North, \"e\" or \"E\" for East, \"w\" or \"W\" for West, and \"s\" or \"S\" for South. \"i\" or \"I\" prints the inventory. \"t\" or \"T\" is to take items.");
+					
+					else locs[0].updateDisplay("The commands you can use are \"n\" or \"N\" for North, \"e\" or \"E\" for East, \"w\" or \"W\" for West, and \"s\" or \"S\" for South. \"i\" or \"I\" prints the inventory. \"t\" or \"T\" is to take items. \"help\" or \"HELP\" for a list of commands"); 
+					document.getElementById('Command').value="";
+				}
+				//This is the function that will be executed if a location does not exist.
+				function nope(){
+					locs[0].updateDisplay("The maker of this game is sorry to inform you that you cannot move in this direction");
+				}
+				//Enables for all buttons.
+				function enable(){
+					var btn = document.getElementById("N")
+					if(btn.disabled) btn.disabled=false;
+					btn = document.getElementById("E")
+					if(btn.disabled) btn.disabled=false;
+					btn = document.getElementById("S")
+					if(btn.disabled) btn.disabled=false;
+					btn = document.getElementById("W")
+					if(btn.disabled) btn.disabled=false;
+				}
+				//init function runs when the webpage loads
+				function init(){
+			 		locs[0].updateDisplay("You are in a room with two doors, a window, and a shower. Press any of the four directional buttons or enter a command and press GO to explore the world around you. After any movement directional buttons that cannot be used will turn gray and be disabled to indicate that there is nothing in that direction from your current location. N is for North. E is for East. W is for West. S is for South.  I is to inventory. T is to take items. HELP is for a list of commands that will show in this box." );
+				}
+				
+				
+			</script>
+	</head>
+	<body onload="init()" style="background-color:#830B38">
+		<h1>Into Another World</h1>
+			<h2>Intro to Programming</h2>
+		
+		<br>
+			<button id="N" onclick="movePlayer(0);" class ="directionButton" style="top: 350px;">N</button><!--This is the button to go north-->
+		<br>
+		<!--The following 2 buttons are positioned next to eachother-->
+			<button id="W" onclick="movePlayer(3);" class ="directionButton" style="position: absolute; left: 350px; right: 50px; top: 400px;" >W</button>        <!--This is the button to go west-->
+			<button id="E" onclick="movePlayer(1);" class ="directionButton" style="position: absolute; left: 450px; right: 150px; top: 400px;" >E</button>        <!--This is the button to go east-->
+		<br>
+			<button id="S" onclick="movePlayer(2);" class ="directionButton" style="top: 450px;">S</button><!--This is the button to go south-->
+		<br>
+		<!--This is the map of the game-->
+		<div class="img">
+			<img src="Map.jpg" style="top: 700px;"><img>
+		</div>
+		
+			<p>Where am I?...</p>
+		<!--Textarea where the messages and location descriptions are displayed.-->
+				<textarea id="Loc" rows="10" cols="50" style="resize:none; overflow:auto; position:relative;">	</textarea>
+			<h4 style = "position: absolute; left: 325px; right: 350px; width:10em;">
+				Command: 
+				<!--Input object for commands-->
+				<input type="text" placeholder="n,e,s,w,i,t" id="Command" size="5" style="position:relative;">
+				<!--Button object for processing the commands.-->
+				<button class="goButton" onClick="commandConvert(document.getElementById('Command').value);">Go</button>
+			</h4>
+			<h3>Score:</h3>
+				 <!--Input object for score-->
+				<input type="text" value="0" id="Score" size="10" style="position:relative;">
+		<br>
+			<p style= "position:absolute; left: 10px; right: 100px; top: 700px;">
+				If you have any questions about my game or anything else please feel free to <a href="mailto:Mutiat.Alagbala1@marist.edu" class="links">email me.</a>
+			</p>
+	</body>
+</html>
