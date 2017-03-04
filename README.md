@@ -7,8 +7,9 @@ PHP, Javascript, MySQL - Web Forms with that communicate data check the data’s
 # Software Systems and Analysis 
 System Proposal - System Proposal created and presented for a hypothetical use case.
 # Data Communications 
-- Basic knowledge of networking protocols, standards, structures, and history. As well as, basic knowledge of hardware standards, structures and real world uses .
-# Database Management
+Basic knowledge of networking protocols, standards, structures, and history. As well as, basic knowledge of hardware standards, structures and real world uses .
+Please email user for more details.
+# Database Systems
 T-SQL (Postgres) - Final Database Project required construction from scratch of a multi- dependency database built for a place or group, real or fake.
 # Systems Design 
 Java Swing- Multiple small application designs built with Java in Eclipse with java.swing library and more. Basic understanding of application efficiency based on user experience “The best User Interfaces never get noticed.” Introduction to Business - Business Plan created for and presented to a real company at campus wide business competition.
